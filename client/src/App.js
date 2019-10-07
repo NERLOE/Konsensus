@@ -1,13 +1,22 @@
 import React from "react";
-import QRCode from "qrcode.react";
+import { BrowserRouter, Route /*, Redirect*/ } from "react-router-dom";
+import { Game } from "./components/Game";
+import { Cookies } from "react-cookie";
+import { instanceOf } from "prop-types";
 
-function App() {
-  return (
-    <React.Fragment>
-      <h1>Konsensus</h1>
-      <QRCode value="https://www.minetech.dk"></QRCode>
-    </React.Fragment>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <React.Fragment>
+          <div className="container">
+            <h1 className="title">Konsensus</h1>
+            <Route exact path="/" component={Game} />
+          </div>
+        </React.Fragment>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

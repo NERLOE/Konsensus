@@ -1,4 +1,60 @@
+@font-face {
+    font-family: dosisBold;
+    src: url("../fonts/Dosis-Bold.otf");
+}
+
+@font-face {
+    font-family: dosisBold;
+    src: url("../fonts/Dosis-Bold.otf");
+}
+
+@font-face {
+    font-family: dosisExtraBold;
+    src: url("../fonts/Dosis-ExtraBold.otf");
+}
+
+@font-face {
+    font-family: dosisExtraLight;
+    src: url("../fonts/Dosis-ExtraLight.otf");
+}
+
+@font-face {
+    font-family: dosisLight;
+    src: url("../fonts/Dosis-Light.otf");
+}
+
+@font-face {
+    font-family: dosisMedium;
+    src: url("../fonts/Dosis-Medium.otf");
+}
+
+@font-face {
+    font-family: dosisRegular;
+    src: url("../fonts/Dosis-Regular.otf");
+}
+
+@font-face {
+    font-family: dosisSemiBold;
+    src: url("../fonts/Dosis-SemiBold.otf");
+}
+
 body {
     background-color: rgb(235, 234, 234);
     color: rgb(79, 79, 79);
+    font-family: dosisMedium;
+}
+
+.qrCode {
+    margin: 0;
+    word-wrap: break-word;
+    width: 200px;
+    font-size: 10px;
+}
+
+.title {
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 70px;
+    font-family: dosisBold;
 }
