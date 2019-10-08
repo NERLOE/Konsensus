@@ -70,9 +70,20 @@ body {
         margin-bottom: 5px;
     }
 
+    .wrongCode {
+        border-color: red;
+    }
+
     .joinGameBtn {
         margin-bottom: 30px;
     }
 
     .createGameBtn {}
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
