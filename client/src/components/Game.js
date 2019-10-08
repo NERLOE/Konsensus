@@ -10,8 +10,6 @@ export class Game extends Component {
     this.state = {
       game: null
     };
-
-    this.check();
   }
 
   async check() {
@@ -26,6 +24,10 @@ export class Game extends Component {
 
     var g = res.data;
     this.setState({ game: g });
+  }
+
+  componentDidMount() {
+    this.check();
   }
 
   render() {
