@@ -8,7 +8,9 @@ export class QRCodes extends Component {
         <QR value="Asien" />
         <QR value="Afrika" />
         <QR value="Europa" />
-        <QR value="Amerika" />
+        <QR value="Nordamerika" />
+        <QR value="Sydamerika" />
+        <QR value="Oceanien" />
       </div>
     );
   }
