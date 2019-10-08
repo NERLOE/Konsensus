@@ -58,7 +58,7 @@ export class Home extends Component {
 
 	render() {
 		return (
-			<div>
+			<React.Fragment>
 				<h1 style={{ textAlign: "center" }}>
 					Indtast koden til dit spil, eller opret dit eget.
 				</h1>
@@ -90,7 +90,8 @@ export class Home extends Component {
 						Opret spil
 					</button>
 				</div>
-			</div>
+				<div className="popupMessage"></div>
+			</React.Fragment>
 		);
 	}
 }
