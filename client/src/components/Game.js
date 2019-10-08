@@ -30,6 +30,10 @@ export class Game extends Component {
     this.check();
   }
 
+  componentDidUpdate() {
+    this.check();
+  }
+
   render() {
     return (
       <React.Fragment>
