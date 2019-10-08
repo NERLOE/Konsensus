@@ -26,6 +26,7 @@ export class Home extends Component {
 	joinGame = () => {
 		var code = this.state.gameCode.trim();
 		if (code == "") {
+			this.setState({ error: true });
 			return;
 		}
 
