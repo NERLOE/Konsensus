@@ -4,9 +4,17 @@ import QRReader from "./QRReader";
 import axios from "axios";
 
 export class Game extends Component {
-  async constructor() {
+  constructor() {
     super();
 
+    this.state = {
+      game: null
+    };
+
+    this.check();
+  }
+
+  async check() {
     var res = await axios.get("/api/getGame/" + code);
 
     if (res.data.error) {
@@ -15,12 +23,8 @@ export class Game extends Component {
     }
 
     var g = res.data;
-    this.state = {
-      game: g
-    };
+    this.setState({ game: g });
   }
-
-  componentWillMount() {}
 
   render() {
     return (
