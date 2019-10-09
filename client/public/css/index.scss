@@ -93,3 +93,14 @@ button:focus {
     top: 0;
     right: 0;
 }
+
+.closeSite {
+    color: rgba(0, 0, 0, 0.5);
+    top: 10;
+    left: 10;
+
+    &:hover {
+        color: rgba(0, 0, 0, 1);
+        cursor: pointer;
+    }
+}

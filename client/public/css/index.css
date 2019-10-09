@@ -92,4 +92,15 @@ button:focus {
   top: 0;
   right: 0;
 }
+
+.closeSite {
+  color: rgba(0, 0, 0, 0.5);
+  top: 10;
+  left: 10;
+}
+
+.closeSite:hover {
+  color: black;
+  cursor: pointer;
+}
 /*# sourceMappingURL=index.css.map */

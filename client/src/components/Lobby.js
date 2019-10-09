@@ -43,13 +43,27 @@ export class Lobby extends Component {
 
 	setupBeforeUnloadListener = () => {
 		window.addEventListener("beforeunload", this.deleteGame());
-	}; */
+  }; */
+
+	closeHandler = () => {
+		this.props.history.push("/");
+	};
 
 	render() {
 		if (!this.state.game) return null;
 
 		return (
 			<React.Fragment>
+				<div className="closeSite">
+					<span
+						onClick={this.closeHandler()}
+						data-toggle="tooltip"
+						data-placement="top"
+						title="Luk spil"
+					>
+						x
+					</span>
+				</div>
 				<div className="codeInfo">
 					<QR value={this.state.game.id}></QR>
 				</div>
