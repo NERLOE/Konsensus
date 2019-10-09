@@ -34,8 +34,7 @@ export class Join extends Component {
 		this.check();
 	}
 
-	async joinGame() {
-		var name = this.state.playerName.trim().toUpperCase();
+	async joinGame(name) {
 		if (name == "") {
 			this.setState({ error: true });
 			return;
@@ -83,7 +82,7 @@ export class Join extends Component {
 		if (e.charCode == 13) {
 			// Trykkede ENTER
 			console.log("Enter");
-			this.joinGame();
+			this.joinGame(this.state.playerName.trim().toUpperCase());
 		}
 	};
 
@@ -112,7 +111,7 @@ export class Join extends Component {
 						/>
 					</div>
 					<button
-						onClick={this.joinGame}
+						onClick={this.joinGame(this.state.playerName.trim().toUpperCase())}
 						className="btn btn-lg btn-primary joinGameBtn"
 					>
 						Bekræft
