@@ -290,7 +290,7 @@ app.get("/api/game/getRandomDilemma/:gameID/:continent", (req, res) => {
 
 	var dilemma = null;
 	dilemmas.forEach(c => {
-		if (c.continent == category) {
+		if (c.continent == continent) {
 			var d = c.questions[Math.floor(Math.random() * c.questions.length)];
 			dilemmas = d;
 		}
