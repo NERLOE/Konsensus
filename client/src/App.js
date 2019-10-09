@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route /*, Redirect*/ } from "react-router-dom";
-import Game from "./components/Game";
 import Home from "./components/Home";
+import Game from "./components/game/Game";
 import Lobby from "./components/game/Lobby";
 import Join from "./components/game/Join";
 //import { Cookies } from "react-cookie";
