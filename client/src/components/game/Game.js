@@ -112,18 +112,12 @@ export class Game extends Component {
 								"form-control gameCodeInput" +
 								(this.state.error ? " shake animated wrongCode" : "")
 							}
-							placeholder="Indtast kontinent"
+							placeholder="Indtast kontinent manuelt"
 							onKeyPress={this.handleKeyPress}
 							onChange={this.handleChange.bind(this)}
 							value={this.state.gameCode}
 						/>
 					</div>
-					<button
-						onClick={this.joinGame}
-						className="btn btn-lg btn-primary joinGameBtn"
-					>
-						Få dilemma
-					</button>
 					<button
 						onClick={this.toggleQRModal}
 						className="btn btn-lg btn-success scanGameBtn"
