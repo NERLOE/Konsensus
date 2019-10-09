@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { QR } from "../QR";
+import Players from "./Players";
 
 export class Lobby extends Component {
 	constructor() {
@@ -9,6 +10,22 @@ export class Lobby extends Component {
 		this.state = {
 			game: null
 		};
+	}
+
+	async updateGame() {
+		var res = await axios.get(
+			"/api/game/get/" + this.props.match.params.gameID
+		);
+
+		if (res.data.error) return;
+
+		this.setState({
+			game: res.data
+		});
+
+		setTimeout(() => {
+			this.updateGame();
+		}, 1000);
 	}
 
 	async check() {
@@ -68,6 +85,11 @@ export class Lobby extends Component {
 				</div>
 				<div className="codeInfo">
 					<QR value={this.state.game.id}></QR>
+				</div>
+				<div className="gameInfo">
+					<div className="playerInfo">
+						<Players players={this.state.game.players}></Players>
+					</div>
 				</div>
 			</React.Fragment>
 		);
