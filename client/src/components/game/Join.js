@@ -34,7 +34,9 @@ export class Join extends Component {
 		this.check();
 	}
 
-	async joinGame(name) {
+	joinGame() {
+		var name = this.state.playerName.trim().toUpperCase();
+		var game = this.state.game;
 		if (name == "") {
 			this.setState({ error: true });
 			return;
@@ -42,17 +44,13 @@ export class Join extends Component {
 
 		console.log("Trying to join game with name: " + name);
 
-		let res = await axios.get(
-			"/api/game/getPlayer/" + this.state.game.id + "/" + name
-		);
-		if (!res.error) {
-			this.setState({ error: true });
-			return;
-		}
+		axios.get("/api/game/getPlayer/" + game.id + "/" + name).then(res => {
+			if (!res.error) {
+				this.setState({ error: true });
+				return;
+			}
 
-		axios
-			.put("/api/game/addPlayer/" + this.state.game.id + "/" + name)
-			.then(res => {
+			axios.put("/api/game/addPlayer/" + game.id + "/" + name).then(res => {
 				if (res.data.error) {
 					// Fejl
 					this.setState({ error: true });
@@ -64,17 +62,18 @@ export class Join extends Component {
 				}
 			});
 
-		axios.get("/api/game/get/" + this.state.game.id).then(res => {
-			if (res.data.error) {
-				// Fejl
-				this.setState({ error: true });
-				console.log(res.data.error);
-			} else {
-				// Success
-				console.log(res.data);
-				var game = res.data;
-				this.props.history.push("/g/" + game.id);
-			}
+			axios.get("/api/game/get/" + game.id).then(res => {
+				if (res.data.error) {
+					// Fejl
+					this.setState({ error: true });
+					console.log(res.data.error);
+				} else {
+					// Success
+					console.log(res.data);
+					var game = res.data;
+					this.props.history.push("/g/" + game.id);
+				}
+			});
 		});
 	}
 
@@ -82,7 +81,7 @@ export class Join extends Component {
 		if (e.charCode == 13) {
 			// Trykkede ENTER
 			console.log("Enter");
-			this.joinGame(this.state.playerName.trim().toUpperCase());
+			this.joinGame();
 		}
 	};
 
@@ -111,7 +110,7 @@ export class Join extends Component {
 						/>
 					</div>
 					<button
-						onClick={this.joinGame(this.state.playerName.trim().toUpperCase())}
+						onClick={this.joinGame}
 						className="btn btn-lg btn-primary joinGameBtn"
 					>
 						Bekræft
