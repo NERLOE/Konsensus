@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import HomeScreen from "./HomeScreen";
 
 export class Home extends Component {
   constructor() {
@@ -67,34 +68,7 @@ export class Home extends Component {
         <h1 style={{ textAlign: "center" }}>
           Indtast koden til dit spil, eller opret dit eget.
         </h1>
-        <div className="homeScreen">
-          <div className="input-group input-group-lg">
-            <input
-              type="text"
-              className={
-                "form-control gameCodeInput" +
-                (this.state.error ? " shake animated wrongCode" : "")
-              }
-              placeholder="Indtast spilkode"
-              onKeyPress={this.handleKeyPress}
-              onChange={this.handleChange.bind(this)}
-              value={this.state.gameCode}
-            />
-          </div>
-          <button
-            onClick={this.joinGame}
-            className="btn btn-lg btn-primary joinGameBtn"
-          >
-            Tilslut til spil
-          </button>
-          <h1>eller</h1>
-          <button
-            onClick={this.createGame}
-            className="btn btn-lg btn-secondary createGameBtn"
-          >
-            Opret spil
-          </button>
-        </div>
+        <HomeScreen />
         {this.state.popupMessage ? (
           <div className="popupMessage">{this.state.popupMessage}</div>
         ) : null}
