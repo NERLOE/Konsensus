@@ -27,14 +27,23 @@ export class Lobby extends Component {
 
 	componentDidMount() {
 		this.check();
+		this.setupBeforeUnloadListener();
 	}
 
 	componentWillUnmount() {
+		window.removeEventListener("beforeunload", this.deleteGame());
+	}
+
+	deleteGame = () => {
 		axios.put("/api/deleteGame/" + this.props.match.params.gameID).then(res => {
 			console.log(res);
 		});
 		console.log("Deleted");
-	}
+	};
+
+	setupBeforeUnloadListener = () => {
+		window.addEventListener("beforeunload", this.deleteGame());
+	};
 
 	render() {
 		if (this.state.game) {

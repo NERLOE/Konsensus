@@ -7,20 +7,20 @@ import { Lobby } from "./components/Lobby";
 //import { instanceOf } from "prop-types";
 
 class App extends React.Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <React.Fragment>
-          <div className="container-fluid">
-            <h1 className="title">Konsensus</h1>
-            <Route path="/game/:gameID" component={Game} />
-            <Route path="/lobby/:gameID" component={Lobby} />
-            <Route exact path="/" component={Home} />
-          </div>
-        </React.Fragment>
-      </BrowserRouter>
-    );
-  }
+	render() {
+		return (
+			<BrowserRouter>
+				<React.Fragment>
+					<div className="container-fluid">
+						<h1 className="title">Konsensus</h1>
+						<Route path="/game/:gameID" component={Game} />
+						<Route path="/lobby/:gameID" component={Lobby} />
+						<Route exact path="/" component={Home} />
+					</div>
+				</React.Fragment>
+			</BrowserRouter>
+		);
+	}
 }
 
 export default App;
