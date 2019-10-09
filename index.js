@@ -110,7 +110,7 @@ app.put("/api/game/addPoints/:gameID/:playerID/:points", (req, res) => {
 
 	updateGame(game, gameID);
 
-	res.json(player);
+	res.json(game);
 });
 
 app.put("/api/game/create", (req, res) => {
