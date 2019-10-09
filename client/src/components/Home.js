@@ -3,28 +3,6 @@ import axios from "axios";
 import HomeScreen from "./HomeScreen";
 
 export class Home extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      gameCode: "",
-      error: false,
-      popupMessage: null
-    };
-  }
-
-  handleKeyPress = e => {
-    if (e.charCode == 13) {
-      // Trykkede ENTER
-      console.log("Enter");
-      this.joinGame();
-    }
-  };
-
-  handleChange = e => {
-    this.setState({ gameCode: e.target.value, error: false });
-  };
-
   joinGame = () => {
     var code = this.state.gameCode.trim();
     if (code == "") {
