@@ -12,11 +12,11 @@ class App extends React.Component {
 		return (
 			<BrowserRouter>
 				<React.Fragment>
+					<div className="topHeader">
+						<h1 className="title">Konsensus</h1>
+						{/*<h4 className="subTitle">Dilemma spillet som dømmer dig!</h4>*/}
+					</div>
 					<div className="container-fluid">
-						<div className="topHeader">
-							<h1 className="title">Konsensus</h1>
-							{/*<h4 className="subTitle">Dilemma spillet som dømmer dig!</h4>*/}
-						</div>
 						<Route path="/g/:gameID" component={Game} />
 						<Route path="/l/:gameID" component={Lobby} />
 						<Route path="/j/:gameID" component={Join} />
