@@ -150,8 +150,8 @@ button:focus {
 
 .bgModal .modalContent .modalCloseButton {
   position: absolute;
-  top: -78px;
-  right: -30px;
+  top: -60px;
+  right: -10px;
   font-size: 90px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
