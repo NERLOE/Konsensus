@@ -14,6 +14,13 @@ export class Game extends Component {
 	}
 
 	async getPlayerInfo() {
+		if (this.state.game.id == null) {
+			setTimeout(() => {
+				this.getPlayerInfo();
+			}, 500);
+			return;
+		}
+
 		var res = await axios.get(
 			"/api/game/getPlayer/" + this.state.game.id + "/" + localStorage.playerID
 		);
@@ -23,6 +30,10 @@ export class Game extends Component {
 		}
 
 		this.setState({ player: res.data });
+
+		setTimeout(() => {
+			this.getPlayerInfo();
+		}, 1000 * 1);
 
 		return res.data;
 	}
