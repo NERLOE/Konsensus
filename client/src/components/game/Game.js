@@ -103,7 +103,21 @@ export class Game extends Component {
 	handleAnswerOne = () => {
 		var dilemma = this.state.dilemma;
 
-		this.state.answered = dilemma;
+		this.state.answered = dilemma.answerOne;
+		axios.put(
+			"/api/game/addPoints/" +
+				this.state.game.id +
+				"/" +
+				this.state.player.id +
+				"/" +
+				dilemma.answerOne.points
+		);
+
+		this.state.dilemma = null;
+		setTimeout(() => {
+			this.state.answered = null;
+		}, 1000 * 2);
+
 		console.log("(1) Du valgte: " + dilemma.answerOne.text);
 		console.log("Konsekvens: " + dilemma.answerOne.resultText);
 		console.log("Total points: " + dilemma.answerOne.points);
@@ -112,7 +126,20 @@ export class Game extends Component {
 	handleAnswerTwo = () => {
 		var dilemma = this.state.dilemma;
 
-		this.state.answered = dilemma;
+		this.state.answered = dilemma.answerTwo;
+		axios.put(
+			"/api/game/addPoints/" +
+				this.state.game.id +
+				"/" +
+				this.state.player.id +
+				"/" +
+				dilemma.answerTwo.points
+		);
+
+		this.state.dilemma = null;
+		setTimeout(() => {
+			this.state.answered = null;
+		}, 1000 * 2);
 		console.log("(2) Du valgte: " + dilemma.answerTwo.text);
 		console.log("Konsekvens: " + dilemma.answerTwo.resultText);
 		console.log("Total points: " + dilemma.answerTwo.points);
@@ -121,54 +148,65 @@ export class Game extends Component {
 	render() {
 		if (this.state.player == null) return null;
 
-		return (
-			<React.Fragment>
-				<div className="text-center">
-					{!this.state.dilemma ? (
-						<React.Fragment>
-							<h1>Er det din tur?</h1>
-							<div className="input-group input-group-lg">
-								<input
-									type="text"
-									className={
-										"form-control gameCodeInput" +
-										(this.state.error ? " shake animated wrongCode" : "")
-									}
-									placeholder="Indtast kontinent manuelt"
-									onKeyPress={this.handleKeyPress}
-									onChange={this.handleChange.bind(this)}
-									value={this.state.gameCode}
-								/>
-							</div>
-							<button
-								onClick={this.toggleQRModal}
-								className="btn btn-lg btn-success scanGameBtn"
-							>
-								Scan kort
-							</button>
-						</React.Fragment>
-					) : (
-						<React.Fragment>
-							<h4>{this.state.dilemma.question}</h4>
-							<button onClick={this.handleAnswerOne}>
-								{this.state.dilemma.answerOne.text}
-							</button>
-							<button onClick={this.handleAnswerTwo}>
-								{this.state.dilemma.answerTwo.text}
-							</button>
-						</React.Fragment>
-					)}
-				</div>
-				{this.state.showQRModal ? (
-					<QRModal
-						handleScan={this.handleScan.bind(this)}
-						handleError={this.handleError.bind(this)}
-						toggleMethod={this.toggleQRModal.bind(this)}
-					/>
-				) : null}
-				<h2 className="showBottom">{this.state.player.name}</h2>
-			</React.Fragment>
-		);
+		if (dilemma) {
+			return (
+				<React.Fragment>
+					<div className="text-center">
+						<h1>Du modtog {answered.points}!</h1>
+						<p>{answered.resultText}</p>
+					</div>
+				</React.Fragment>
+			);
+		} else {
+			return (
+				<React.Fragment>
+					<div className="text-center">
+						{!this.state.dilemma ? (
+							<React.Fragment>
+								<h1>Er det din tur?</h1>
+								<div className="input-group input-group-lg">
+									<input
+										type="text"
+										className={
+											"form-control gameCodeInput" +
+											(this.state.error ? " shake animated wrongCode" : "")
+										}
+										placeholder="Indtast kontinent manuelt"
+										onKeyPress={this.handleKeyPress}
+										onChange={this.handleChange.bind(this)}
+										value={this.state.gameCode}
+									/>
+								</div>
+								<button
+									onClick={this.toggleQRModal}
+									className="btn btn-lg btn-success scanGameBtn"
+								>
+									Scan kort
+								</button>
+							</React.Fragment>
+						) : (
+							<React.Fragment>
+								<h4>{this.state.dilemma.question}</h4>
+								<button onClick={this.handleAnswerOne}>
+									{this.state.dilemma.answerOne.text}
+								</button>
+								<button onClick={this.handleAnswerTwo}>
+									{this.state.dilemma.answerTwo.text}
+								</button>
+							</React.Fragment>
+						)}
+					</div>
+					{this.state.showQRModal ? (
+						<QRModal
+							handleScan={this.handleScan.bind(this)}
+							handleError={this.handleError.bind(this)}
+							toggleMethod={this.toggleQRModal.bind(this)}
+						/>
+					) : null}
+					<h2 className="showBottom">{this.state.player.name}</h2>
+				</React.Fragment>
+			);
+		}
 	}
 }
 
