@@ -18,6 +18,10 @@ export class Home extends Component {
 		this.setState({ showQRModal: !this.state.showQRModal });
 	};
 
+	switchPage = url => {
+		this.props.history.push(url);
+	};
+
 	joinGame = () => {
 		var code = this.state.gameCode.trim().toUpperCase();
 		if (code == "") {
@@ -111,7 +115,10 @@ export class Home extends Component {
 					<div className="popupMessage">{this.state.popupMessage}</div>
 				) : null}
 				{this.state.showQRModal ? (
-					<QRModal toggleMethod={this.toggleQRModal.bind(this)} />
+					<QRModal
+						toggleMethod={this.toggleQRModal.bind(this)}
+						switchURL={this.switchPage.bind(this)}
+					/>
 				) : null}
 			</React.Fragment>
 		);

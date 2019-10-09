@@ -10,7 +10,7 @@ export class QRModal extends Component {
 					// Success
 					console.log(res.data);
 					var game = res.data;
-					this.props.history.push("/g/" + game.id);
+					this.props.switchURL("/g/" + game.id);
 				}
 			});
 		}
