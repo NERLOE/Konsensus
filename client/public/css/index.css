@@ -172,6 +172,7 @@ button:focus {
   top: 0px;
   left: 0px;
   background-color: white;
+  z-index: 999;
 }
 
 .topHeader .title {
@@ -182,17 +183,25 @@ button:focus {
   font-family: dosisBold;
 }
 
+@media (max-width: 680px) {
+  .topHeader .title {
+    font-size: 40px;
+  }
+}
+
 .qrGameCodeCol {
-  top: 10px;
+  top: 0px;
   background-color: white;
   border-bottom-left-radius: 25px;
   padding-bottom: 5px;
+  padding-top: 10px;
   text-align: center;
+  z-index: 1000;
 }
 
 @media (max-width: 680px) {
   .qrGameCodeCol {
-    top: 90px;
+    top: 50px;
   }
 }
 
