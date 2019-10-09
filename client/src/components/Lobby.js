@@ -55,14 +55,14 @@ export class Lobby extends Component {
 		return (
 			<React.Fragment>
 				<div className="closeSite">
-					<span
+					<a
 						onClick={this.closeHandler()}
 						data-toggle="tooltip"
 						data-placement="top"
 						title="Luk spil"
 					>
 						x
-					</span>
+					</a>
 				</div>
 				<div className="codeInfo">
 					<QR value={this.state.game.id}></QR>
