@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import QRCodes from "./QRCodes";
-import QRReader from "./QRReader";
 import axios from "axios";
 import { QR } from "./QR";
 
-export class Game extends Component {
+export class Lobby extends Component {
   constructor() {
     super();
 
@@ -49,4 +47,4 @@ export class Game extends Component {
   }
 }
 
-export default Game;
+export default Lobby;
