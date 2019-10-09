@@ -108,6 +108,7 @@ button:focus {
     /* IE10+/Edge */
     user-select: none;
     /* Standard */
+    z-index: 1000;
 
     &:hover {
         color: rgba(218, 54, 54, 1);
