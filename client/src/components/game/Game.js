@@ -11,7 +11,9 @@ export class Game extends Component {
 			player: null,
 			showQRModal: false,
 			continentCode: "",
-			error: false
+			error: false,
+			dilemma: null,
+			answered: null
 		};
 	}
 
@@ -21,7 +23,7 @@ export class Game extends Component {
 			.then(res => {
 				if (res.data.error) return;
 
-				console.log(res.data);
+				this.setState({ dilemma: res.data });
 			});
 	};
 
@@ -98,32 +100,62 @@ export class Game extends Component {
 		this.setState({ continentCode: e.target.value, error: false });
 	};
 
+	handleAnswerOne = () => {
+		var dilemma = this.state.dilemma;
+
+		console.log("(1) Du valgte: " + dilemma.answerOne.text);
+		console.log("Konsekvens: " + dilemma.answerOne.resultText);
+		console.log("Total points: " + dilemma.answerOne.points);
+	};
+
+	handleAnswerTwo = () => {
+		var dilemma = this.state.dilemma;
+
+		console.log("(2) Du valgte: " + dilemma.answerTwo.text);
+		console.log("Konsekvens: " + dilemma.answerTwo.resultText);
+		console.log("Total points: " + dilemma.answerTwo.points);
+	};
+
 	render() {
 		if (this.state.player == null) return null;
 
 		return (
 			<React.Fragment>
 				<div className="text-center">
-					<h1>Er det din tur?</h1>
-					<div className="input-group input-group-lg">
-						<input
-							type="text"
-							className={
-								"form-control gameCodeInput" +
-								(this.state.error ? " shake animated wrongCode" : "")
-							}
-							placeholder="Indtast kontinent manuelt"
-							onKeyPress={this.handleKeyPress}
-							onChange={this.handleChange.bind(this)}
-							value={this.state.gameCode}
-						/>
-					</div>
-					<button
-						onClick={this.toggleQRModal}
-						className="btn btn-lg btn-success scanGameBtn"
-					>
-						Scan kort
-					</button>
+					{!this.state.dilemma ? (
+						<React.Fragment>
+							<h1>Er det din tur?</h1>
+							<div className="input-group input-group-lg">
+								<input
+									type="text"
+									className={
+										"form-control gameCodeInput" +
+										(this.state.error ? " shake animated wrongCode" : "")
+									}
+									placeholder="Indtast kontinent manuelt"
+									onKeyPress={this.handleKeyPress}
+									onChange={this.handleChange.bind(this)}
+									value={this.state.gameCode}
+								/>
+							</div>
+							<button
+								onClick={this.toggleQRModal}
+								className="btn btn-lg btn-success scanGameBtn"
+							>
+								Scan kort
+							</button>
+						</React.Fragment>
+					) : (
+						<React.Fragment>
+							<h1>{this.state.dilemma.question}</h1>
+							<button onClick={this.handleAnswerOne}>
+								{this.state.dilemma.answerOne.text}
+							</button>
+							<button onClick={this.handleAnswerTwo}>
+								{this.state.dilemma.answerTwo.text}
+							</button>
+						</React.Fragment>
+					)}
 				</div>
 				{this.state.showQRModal ? (
 					<QRModal
