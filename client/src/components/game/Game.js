@@ -148,12 +148,12 @@ export class Game extends Component {
 	render() {
 		if (this.state.player == null) return null;
 
-		if (dilemma) {
+		if (this.state.dilemma) {
 			return (
 				<React.Fragment>
 					<div className="text-center">
-						<h1>Du modtog {answered.points}!</h1>
-						<p>{answered.resultText}</p>
+						<h1>Du modtog {this.state.answered.points}!</h1>
+						<p>{this.state.answered.resultText}</p>
 					</div>
 				</React.Fragment>
 			);
