@@ -56,7 +56,7 @@ export class Home extends Component {
       } else {
         console.log(res.data);
         var game = res.data;
-        this.props.history.push("/game/" + game.id);
+        this.props.history.push("/lobby/" + game.id);
       }
     });
   };

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import QRCodes from "./QRCodes";
 import QRReader from "./QRReader";
 import axios from "axios";
+import { QR } from "./QR";
 
 export class Game extends Component {
   constructor() {
@@ -30,17 +31,21 @@ export class Game extends Component {
     this.check();
   }
 
-  componentDidUpdate() {
-    this.check();
-  }
-
   render() {
-    return (
-      <React.Fragment>
-        <QRCodes />
-        <QRReader />
-      </React.Fragment>
-    );
+    if (this.state.game) {
+      return (
+        <React.Fragment>
+          <h1>Kode:</h1>
+          <QR value={this.state.game.id}></QR>
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <h1>Loader...</h1>
+        </React.Fragment>
+      );
+    }
   }
 }
 

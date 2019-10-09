@@ -13,6 +13,7 @@ class App extends React.Component {
           <div className="container">
             <h1 className="title">Konsensus</h1>
             <Route path="/game/:gameID" component={Game} />
+            <Route path="/lobby/:gameID" component={Lobby} />
             <Route exact path="/" component={Home} />
           </div>
         </React.Fragment>
