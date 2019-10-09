@@ -5,9 +5,13 @@ export class QR extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<div className="col">
-					<h1>{this.props.value}</h1>
-					<QRCode value={this.props.value}></QRCode>
+				<div className="col qrGameCodeCol">
+					<QRCode
+						className="qrCode"
+						value={this.props.value}
+						size={75}
+					></QRCode>
+					<h1 className="gameCode">{this.props.value}</h1>
 				</div>
 			</React.Fragment>
 		);

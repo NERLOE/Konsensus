@@ -15,7 +15,7 @@ class App extends React.Component {
 					<div className="container-fluid">
 						<div className="topHeader">
 							<h1 className="title">Konsensus</h1>
-							<h4 className="subTitle">Dilemma spillet som dømmer dig!</h4>
+							{/*<h4 className="subTitle">Dilemma spillet som dømmer dig!</h4>*/}
 						</div>
 						<Route path="/g/:gameID" component={Game} />
 						<Route path="/l/:gameID" component={Lobby} />

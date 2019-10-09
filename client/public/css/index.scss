@@ -51,14 +51,6 @@ body {
     font-size: 10px;
 }
 
-.title {
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 70px;
-    font-family: dosisBold;
-}
-
 .homeScreen {
     position: absolute;
     top: 50%;
@@ -75,10 +67,12 @@ body {
     }
 
     .joinGameBtn {
+        margin-top: 10px;
         margin-bottom: 30px;
     }
 
     .scanGameBtn {
+        margin-top: 10px;
         margin-bottom: 30px;
     }
 
@@ -171,4 +165,38 @@ button:focus {
     top: 0px;
     left: 0px;
     background-color: white;
+
+    .title {
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 70px;
+        font-family: dosisBold;
+    }
+}
+
+.qrGameCodeCol {
+    top: 10px;
+    background-color: white;
+    border-bottom-left-radius: 25px;
+    padding-bottom: 5px;
+    text-align: center;
+
+    @media (max-width: 680px) {
+        top: 90px;
+    }
+
+    .gameCode {
+        background-color: #164199;
+        padding: 5px;
+        text-align: center;
+        color: white;
+        border-radius: 25px;
+    }
+
+    .qrCode {
+        @media (max-width: 680px) {
+            display: none;
+        }
+    }
 }
