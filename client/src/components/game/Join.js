@@ -59,7 +59,7 @@ export class Join extends Component {
 				} else {
 					// Success
 					var player = res.data;
-					console.log(player);
+					localStorage.playerID = player.id;
 				}
 			});
 

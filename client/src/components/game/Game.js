@@ -8,8 +8,26 @@ export class Game extends Component {
 		super();
 
 		this.state = {
-			game: null
+			game: null,
+			playerID: localStorage.playerID,
+			player: null
 		};
+
+		this.getPlayerInfo();
+	}
+
+	async getPlayerInfo() {
+		var res = await axios.get(
+			"/api/game/getPlayer/" + game.id + "/" + playerID
+		);
+
+		if (res.data.error) {
+			return null;
+		}
+
+		this.setState({ player: res.data });
+
+		return res.data;
 	}
 
 	async check() {
@@ -33,9 +51,11 @@ export class Game extends Component {
 	}
 
 	render() {
+		if (this.state.player == null) return null;
+
 		return (
 			<React.Fragment>
-				<h1>Hej (navn)</h1>
+				<h1>Hej {this.state.player.name}</h1>
 			</React.Fragment>
 		);
 	}
