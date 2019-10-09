@@ -13,8 +13,8 @@ class App extends React.Component {
 				<React.Fragment>
 					<div className="container-fluid">
 						<h1 className="title">Konsensus</h1>
-						<Route path="/game/:gameID" component={Game} />
-						<Route path="/lobby/:gameID" component={Lobby} />
+						<Route path="/g/:gameID" component={Game} />
+						<Route path="/l/:gameID" component={Lobby} />
 						<Route exact path="/" component={Home} />
 					</div>
 				</React.Fragment>

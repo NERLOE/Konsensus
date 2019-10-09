@@ -13,7 +13,7 @@ export class Home extends Component {
 	}
 
 	joinGame = () => {
-		var code = this.state.gameCode.trim();
+		var code = this.state.gameCode.trim().toUpperCase();
 		if (code == "") {
 			this.setState({ error: true });
 			return;
@@ -30,7 +30,7 @@ export class Home extends Component {
 				// Success
 				console.log(res.data);
 				var game = res.data;
-				this.props.history.push("/game/" + game.id);
+				this.props.history.push("/g/" + game.id);
 			}
 		});
 	};
@@ -44,7 +44,7 @@ export class Home extends Component {
 			} else {
 				console.log(res.data);
 				var game = res.data;
-				this.props.history.push("/lobby/" + game.id);
+				this.props.history.push("/l/" + game.id);
 			}
 		});
 	};
