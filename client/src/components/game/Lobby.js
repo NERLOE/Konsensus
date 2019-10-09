@@ -46,6 +46,7 @@ export class Lobby extends Component {
 
 	componentDidMount() {
 		this.check();
+		this.updateGame();
 		//this.setupBeforeUnloadListener();
 	}
 
