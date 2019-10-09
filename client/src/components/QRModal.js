@@ -3,7 +3,6 @@ import QrReader from "react-qr-reader";
 
 export class QRModal extends Component {
 	render() {
-		console.log(this.props);
 		return (
 			<React.Fragment>
 				<div className="bgModal">
