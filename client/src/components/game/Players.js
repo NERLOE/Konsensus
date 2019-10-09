@@ -3,11 +3,11 @@ import PlayerInfo from "./PlayerInfo";
 
 export class Players extends Component {
 	render() {
-		console.log(this.props);
+		var { players } = this.props;
 		return (
 			<React.Fragment>
 				<div className="row">
-					{this.props.players.forEach(p => {
+					{players.map(p => {
 						return (
 							<div className="col-6">
 								<PlayerInfo player={p} />
