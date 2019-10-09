@@ -9,9 +9,28 @@ export class Game extends Component {
 
 		this.state = {
 			game: null,
-			player: null
+			player: null,
+			showQRModal: false
 		};
 	}
+
+	handleScan = data => {
+		if (data) {
+			axios
+				.get("/api/game/getRandomDilemma/" + this.state.game.id + "/" + data)
+				.then(res => {
+					console.log(res);
+				});
+		}
+	};
+
+	handleError = err => {
+		console.log(err);
+	};
+
+	toggleQRModal = () => {
+		this.setState({ showQRModal: !this.state.showQRModal });
+	};
 
 	async getPlayerInfo() {
 		if (!this.state.game) {
@@ -65,6 +84,14 @@ export class Game extends Component {
 
 		return (
 			<React.Fragment>
+				<h1 className="text-center">Er det din tur?</h1>
+				{this.state.showQRModal ? (
+					<QRModal
+						handleScan={this.handleScan.bind(this)}
+						handleError={this.handleError.bind(this)}
+						toggleMethod={this.toggleQRModal.bind(this)}
+					/>
+				) : null}
 				<h2 className="showBottom">{this.state.player.name}</h2>
 			</React.Fragment>
 		);

@@ -14,6 +14,23 @@ export class Home extends Component {
 		};
 	}
 
+	handleScan = data => {
+		if (data) {
+			axios.get("/api/game/get/" + data).then(res => {
+				if (!res.data.error) {
+					// Success
+					console.log(res.data);
+					var game = res.data;
+					this.switchURL("/j/" + game.id);
+				}
+			});
+		}
+	};
+
+	handleError = err => {
+		console.log(err);
+	};
+
 	toggleQRModal = () => {
 		this.setState({ showQRModal: !this.state.showQRModal });
 	};
@@ -116,6 +133,8 @@ export class Home extends Component {
 				) : null}
 				{this.state.showQRModal ? (
 					<QRModal
+						handleScan={this.handleScan.bind(this)}
+						handleError={this.handleError.bind(this)}
 						toggleMethod={this.toggleQRModal.bind(this)}
 						switchURL={this.switchPage.bind(this)}
 					/>

@@ -1,25 +1,7 @@
 import React, { Component } from "react";
 import QrReader from "react-qr-reader";
-import axios from "axios";
 
 export class QRModal extends Component {
-	handleScan = data => {
-		if (data) {
-			axios.get("/api/game/get/" + data).then(res => {
-				if (!res.data.error) {
-					// Success
-					console.log(res.data);
-					var game = res.data;
-					this.props.switchURL("/j/" + game.id);
-				}
-			});
-		}
-	};
-
-	handleError = err => {
-		console.log(err);
-	};
-
 	render() {
 		return (
 			<React.Fragment>
@@ -31,8 +13,8 @@ export class QRModal extends Component {
 
 						<QrReader
 							delay={500}
-							onError={this.handleError}
-							onScan={this.handleScan}
+							onError={this.props.handleError}
+							onScan={this.props.handleScan}
 							style={{ height: "100%", borderRadius: "25px" }}
 							facingMode={"environment"}
 							className="qrReader"
