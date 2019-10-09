@@ -56,7 +56,7 @@ export class Lobby extends Component {
 			<React.Fragment>
 				<div className="closeSite">
 					<a
-						onClick={this.closeHandler()}
+						onClick={this.closeHandler}
 						data-toggle="tooltip"
 						data-placement="top"
 						title="Luk spil"
