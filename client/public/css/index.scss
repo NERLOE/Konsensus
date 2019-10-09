@@ -78,6 +78,10 @@ body {
         margin-bottom: 30px;
     }
 
+    .scanGameBtn {
+        margin-bottom: 30px;
+    }
+
     .createGameBtn {}
 }
 
@@ -95,12 +99,68 @@ button:focus {
 }
 
 .closeSite {
-    color: rgba(0, 0, 0, 0.5);
-    top: 10;
-    left: 10;
+    position: absolute;
+    color: rgba(218, 54, 54, 0.5);
+    margin: 0;
+    top: 0px;
+    left: 25px;
+    font-size: 45px;
+    transform: rotate(45deg);
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
 
     &:hover {
-        color: rgba(0, 0, 0, 1);
+        color: rgba(218, 54, 54, 1);
         cursor: pointer;
+    }
+}
+
+.bgModal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .modalContent {
+        width: 400px;
+        height: 400px;
+        background-color: white;
+        border-radius: 4px;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+
+        .modalCloseButton {
+            position: absolute;
+            top: -78px;
+            right: -30px;
+            font-size: 90px;
+            transform: rotate(45deg);
+            -webkit-user-select: none;
+            /* Safari */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* IE10+/Edge */
+            user-select: none;
+            /* Standard */
+            z-index: 999;
+            color: rgb(92, 22, 22);
+
+            &:hover {
+                color: rgb(158, 37, 37);
+            }
+        }
     }
 }

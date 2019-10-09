@@ -80,6 +80,10 @@ body {
   margin-bottom: 30px;
 }
 
+.homeScreen .scanGameBtn {
+  margin-bottom: 30px;
+}
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -94,13 +98,77 @@ button:focus {
 }
 
 .closeSite {
-  color: rgba(0, 0, 0, 0.5);
-  top: 10;
-  left: 10;
+  position: absolute;
+  color: rgba(218, 54, 54, 0.5);
+  margin: 0;
+  top: 0px;
+  left: 25px;
+  font-size: 45px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
 }
 
 .closeSite:hover {
-  color: black;
+  color: #da3636;
   cursor: pointer;
+}
+
+.bgModal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bgModal .modalContent {
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  border-radius: 4px;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.bgModal .modalContent .modalCloseButton {
+  position: absolute;
+  top: -78px;
+  right: -30px;
+  font-size: 90px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
+  z-index: 999;
+  color: #5c1616;
+}
+
+.bgModal .modalContent .modalCloseButton:hover {
+  color: #9e2525;
 }
 /*# sourceMappingURL=index.css.map */

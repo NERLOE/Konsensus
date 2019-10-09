@@ -1,59 +1,46 @@
 import React, { Component } from "react";
+import QrReader from "react-qr-reader";
+import axios from "axios";
 
 export class QRModal extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <button
-          type="button"
-          className="btn btn-primary"
-          data-toggle="modal"
-          data-target="#exampleModalCenter"
-        >
-          Scan kode
-        </button>
-        <div
-          className="modal fade"
-          id="exampleModalCenter"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalCenterTitle">
-                  Modal title
-                </h5>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">...</div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" className="btn btn-primary">
-                  Save changes
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </React.Fragment>
-    );
-  }
+	handleScan = data => {
+		if (data) {
+			axios.get("/api/getGame/" + data).then(res => {
+				if (!res.data.error) {
+					// Success
+					console.log(res.data);
+					var game = res.data;
+					this.props.history.push("/g/" + game.id);
+				}
+			});
+		}
+	};
+
+	handleError = err => {
+		console.log(err);
+	};
+
+	render() {
+		return (
+			<React.Fragment>
+				<div className="bgModal">
+					<div className="modalContent">
+						<div className="modalCloseButton" onClick={this.props.toggleMethod}>
+							+
+						</div>
+
+						<QrReader
+							delay={500}
+							onError={this.handleError}
+							onScan={this.handleScan}
+							style={{ height: "100%" }}
+							facingMode={"environment"}
+						/>
+					</div>
+				</div>
+			</React.Fragment>
+		);
+	}
 }
 
 export default QRModal;

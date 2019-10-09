@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import QRModal from "./QRModal";
 
 export class Home extends Component {
 	constructor() {
@@ -8,9 +9,14 @@ export class Home extends Component {
 		this.state = {
 			gameCode: "",
 			error: false,
-			popupMessage: null
+			popupMessage: null,
+			showQRModal: false
 		};
 	}
+
+	toggleQRModal = () => {
+		this.setState({ showQRModal: !this.state.showQRModal });
+	};
 
 	joinGame = () => {
 		var code = this.state.gameCode.trim().toUpperCase();
@@ -64,9 +70,9 @@ export class Home extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<h1 style={{ textAlign: "center" }}>
+				<h4 style={{ textAlign: "center" }}>
 					Indtast koden til dit spil, eller opret dit eget.
-				</h1>
+				</h4>
 				<div className="homeScreen">
 					<div className="input-group input-group-lg">
 						<input
@@ -87,7 +93,12 @@ export class Home extends Component {
 					>
 						Tilslut til spil
 					</button>
-					{/* <QRModal /> */}
+					<button
+						onClick={this.toggleQRModal}
+						className="btn btn-lg btn-success scanGameBtn"
+					>
+						Scan spil
+					</button>
 					<h1>eller</h1>
 					<button
 						onClick={this.createGame}
@@ -98,6 +109,9 @@ export class Home extends Component {
 				</div>
 				{this.state.popupMessage ? (
 					<div className="popupMessage">{this.state.popupMessage}</div>
+				) : null}
+				{this.state.showQRModal ? (
+					<QRModal toggleMethod={this.toggleQRModal.bind(this)} />
 				) : null}
 			</React.Fragment>
 		);

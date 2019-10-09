@@ -61,7 +61,7 @@ export class Lobby extends Component {
 						data-placement="top"
 						title="Luk spil"
 					>
-						x
+						+
 					</a>
 				</div>
 				<div className="codeInfo">
