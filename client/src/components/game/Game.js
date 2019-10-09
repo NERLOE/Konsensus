@@ -9,7 +9,6 @@ export class Game extends Component {
 
 		this.state = {
 			game: null,
-			playerID: localStorage.playerID,
 			player: null
 		};
 
@@ -18,7 +17,7 @@ export class Game extends Component {
 
 	async getPlayerInfo() {
 		var res = await axios.get(
-			"/api/game/getPlayer/" + game.id + "/" + playerID
+			"/api/game/getPlayer/" + this.state.game.id + "/" + localStorage.playerID
 		);
 
 		if (res.data.error) {
