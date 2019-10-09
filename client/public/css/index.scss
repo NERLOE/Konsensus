@@ -124,7 +124,7 @@ button:focus {
     top: 0;
     left: 0;
     display: flex;
-    justify-content: center;
+    //justify-content: center;
     align-items: center;
     z-index: 1001;
 
@@ -136,6 +136,28 @@ button:focus {
         text-align: center;
         padding: 20px;
         position: relative;
+        left: 50%;
+        transform: translate(-50%, 0%);
+
+        @media (max-width: 320px) {
+            width: 250px;
+            height: 250px;
+        }
+
+        @media (max-width: 375px) {
+            width: 300px;
+            height: 300px;
+        }
+
+        @media (max-width: 414px) {
+            width: 350px;
+            height: 350px;
+        }
+
+        @media (max-width: 700px) {
+            width: 500px;
+            height: 500px;
+        }
 
         .qrReader {
             border-radius: 25px;

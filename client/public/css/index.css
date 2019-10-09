@@ -126,9 +126,6 @@ button:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -142,6 +139,37 @@ button:focus {
   text-align: center;
   padding: 20px;
   position: relative;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+}
+
+@media (max-width: 320px) {
+  .bgModal .modalContent {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 375px) {
+  .bgModal .modalContent {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 414px) {
+  .bgModal .modalContent {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 700px) {
+  .bgModal .modalContent {
+    width: 500px;
+    height: 500px;
+  }
 }
 
 .bgModal .modalContent .qrReader {
