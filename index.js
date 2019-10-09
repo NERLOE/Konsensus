@@ -97,7 +97,7 @@ app.put("/api/game/removePlayer/:gameID/:playerID", (req, res) => {
 	res.json(player);
 });
 
-app.put("/api/game/addPoints/:gameID/:playerID/:points", (req, res) => {
+app.get("/api/game/addPoints/:gameID/:playerID/:points", (req, res) => {
 	var gameID = req.params.gameID;
 	var game = getGameFromID(gameID);
 	var player = getPlayerFromGameWithID(gameID, req.params.playerID);
