@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import QRCodes from "../QRCodes";
-import QRReader from "../QRReader";
+import QRModal from "./QRModal";
 import axios from "axios";
 
 export class Game extends Component {
