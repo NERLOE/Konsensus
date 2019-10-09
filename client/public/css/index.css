@@ -171,4 +171,12 @@ button:focus {
 .bgModal .modalContent .modalCloseButton:hover {
   color: #9e2525;
 }
+
+.topHeader {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: white;
+}
 /*# sourceMappingURL=index.css.map */

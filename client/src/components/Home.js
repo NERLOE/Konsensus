@@ -31,7 +31,7 @@ export class Home extends Component {
 
 		console.log("Trying to join game with code: " + code);
 
-		axios.get("/api/getGame/" + code).then(res => {
+		axios.get("/api/game/get/" + code).then(res => {
 			if (res.data.error) {
 				// Fejl
 				this.setState({ error: true });
@@ -40,7 +40,7 @@ export class Home extends Component {
 				// Success
 				console.log(res.data);
 				var game = res.data;
-				this.props.history.push("/g/" + game.id);
+				this.props.history.push("/j/" + game.id);
 			}
 		});
 	};
@@ -48,7 +48,7 @@ export class Home extends Component {
 	createGame = () => {
 		console.log("Trying to create game");
 
-		axios.put("/api/createGame").then(res => {
+		axios.put("/api/game/create").then(res => {
 			if (res.data.error) {
 				console.log(res.data.error);
 			} else {
@@ -74,10 +74,10 @@ export class Home extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<h4 style={{ textAlign: "center" }}>
-					Indtast koden til dit spil, eller opret dit eget.
-				</h4>
 				<div className="homeScreen">
+					<h4 style={{ textAlign: "center" }}>
+						Indtast koden til dit spil, eller opret dit eget.
+					</h4>
 					<div className="input-group input-group-lg">
 						<input
 							type="text"

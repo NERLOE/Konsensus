@@ -10,7 +10,82 @@ var games = [];
 
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.put("/api/createGame", (req, res) => {
+function getGameFromID(id) {
+	var game = null;
+	games.forEach(g => {
+		if (g.id == id) {
+			game = g;
+		}
+	});
+
+	return game;
+}
+
+function getPlayerFromGameWithID(game, id) {
+	var player = null;
+	game.players.forEach(p => {
+		if (p.id == id) {
+			player = p;
+		}
+	});
+
+	return player;
+}
+
+function getPlayerFromGameWithIDOrName(game, pt) {
+	var player = null;
+	game.players.forEach(p => {
+		if (p.id == pt || p.name == pt) {
+			player = p;
+		}
+	});
+
+	return player;
+}
+
+app.put("/api/game/addPlayer/:id/:name", (req, res) => {
+	var gameID = req.params.id;
+	var name = req.params.name;
+	var game = getGameFromID(gameID);
+
+	var player = {
+		id: game.players.length + 1,
+		name: name,
+		stats: {
+			points: 0
+		}
+	};
+
+	game.players.push(player);
+
+	updateGame(game, gameID);
+
+	res.json(player);
+});
+
+function updateGame(game, id) {
+	games = games.filter((v, i, arr) => {
+		return v.id != id;
+	});
+
+	games.push(game);
+}
+
+app.put("/api/game/removePlayer/:gameID/:playerID", (req, res) => {
+	var gameID = req.params.gameID;
+	var game = getGameFromID(gameID);
+	var player = getPlayerFromGameWithID(gameID, req.params.playerID);
+
+	game = game.players.filter((v, i, arr) => {
+		return v.id != player.id;
+	});
+
+	updateGame(game, gameID);
+
+	res.json(player);
+});
+
+app.put("/api/game/create", (req, res) => {
 	var randomString = Math.random()
 		.toString(36)
 		.slice(-gameCodeLength)
@@ -27,7 +102,7 @@ app.put("/api/createGame", (req, res) => {
 	res.json(game);
 });
 
-app.put("/api/deleteGame/:id", (req, res) => {
+app.put("/api/game/delete/:id", (req, res) => {
 	const id = req.params.id;
 	if (!id) {
 		res.json({ error: "ID er ikke defineret." });
@@ -53,7 +128,42 @@ app.put("/api/deleteGame/:id", (req, res) => {
 	res.json({ success: "Spillet blev slettet!" });
 });
 
-app.get("/api/getGame/:id", (req, res) => {
+app.get("/api/game/getPlayer/:gameID/:player", (req, res) => {
+	const gameID = req.params.gameID;
+	const playerT = req.params.player;
+	if (!gameID || !playerID) {
+		res.json({
+			error: "Enten er playerID ellers så er gameID ikke defineret."
+		});
+		return;
+	}
+
+	var game = null;
+	games.forEach(g => {
+		if (id == g.id) {
+			game = g;
+		}
+	});
+
+	if (game == null) {
+		res.json({ error: "Spillet med dette ID findes ikke!" });
+		return;
+	}
+
+	var player = getPlayerFromGameWithIDOrName(game, playerT);
+	if (player == null) {
+		res.json({
+			error:
+				"Spilleren med dette Navn eller ID findes ikke i spillet med id: " +
+				game.id
+		});
+		return;
+	}
+
+	res.json(player);
+});
+
+app.get("/api/game/get/:id", (req, res) => {
 	const id = req.params.id;
 	if (!id) {
 		res.json({ error: "ID er ikke defineret." });
@@ -70,7 +180,7 @@ app.get("/api/getGame/:id", (req, res) => {
 	res.json(game);
 });
 
-app.get("/api/getGames", (req, res) => {
+app.get("/api/games", (req, res) => {
 	res.json(games);
 });
 

@@ -5,7 +5,7 @@ import axios from "axios";
 export class QRModal extends Component {
 	handleScan = data => {
 		if (data) {
-			axios.get("/api/getGame/" + data).then(res => {
+			axios.get("/api/game/get/" + data).then(res => {
 				if (!res.data.error) {
 					// Success
 					console.log(res.data);

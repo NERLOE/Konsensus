@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { QR } from "./QR";
+import { QR } from "../QR";
 
 export class Lobby extends Component {
 	constructor() {
@@ -14,7 +14,9 @@ export class Lobby extends Component {
 	async check() {
 		console.log(this.props);
 		console.log(this.props.match.params);
-		var res = await axios.get("/api/getGame/" + this.props.match.params.gameID);
+		var res = await axios.get(
+			"/api/game/get/" + this.props.match.params.gameID
+		);
 
 		if (res.data.error) {
 			this.props.history.push("/");
@@ -35,7 +37,7 @@ export class Lobby extends Component {
 	}
 
 	deleteGame = () => {
-		axios.put("/api/deleteGame/" + this.props.match.params.gameID).then(res => {
+		axios.put("/api/game/delete/" + this.props.match.params.gameID).then(res => {
 			console.log(res);
 		});
 		console.log("Deleted");

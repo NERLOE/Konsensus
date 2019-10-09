@@ -15,7 +15,9 @@ export class Game extends Component {
 	async check() {
 		console.log(this.props);
 		console.log(this.props.match.params);
-		var res = await axios.get("/api/getGame/" + this.props.match.params.gameID);
+		var res = await axios.get(
+			"/api/game/get/" + this.props.match.params.gameID
+		);
 
 		if (res.data.error) {
 			this.props.history.push("/");
