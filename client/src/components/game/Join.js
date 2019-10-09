@@ -34,7 +34,7 @@ export class Join extends Component {
 		this.check();
 	}
 
-	joinGame() {
+	joinGame = () => {
 		var name = this.state.playerName.trim().toUpperCase();
 		var game = this.state.game;
 		if (name == "") {
@@ -75,7 +75,7 @@ export class Join extends Component {
 				}
 			});
 		});
-	}
+	};
 
 	handleKeyPress = e => {
 		if (e.charCode == 13) {
