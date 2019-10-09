@@ -35,8 +35,7 @@ export class Game extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<QRCodes />
-				<QRReader />
+				<h1>Hej (navn)</h1>
 			</React.Fragment>
 		);
 	}
