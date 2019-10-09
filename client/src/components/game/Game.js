@@ -80,7 +80,6 @@ export class Game extends Component {
 	}
 
 	render() {
-		console.log(this.state);
 		if (this.state.player == null) return null;
 
 		return (
