@@ -1,28 +1,6 @@
 import React, { Component } from "react";
 
 export class QRModal extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      gameCode: "",
-      error: false,
-      popupMessage: null
-    };
-  }
-
-  handleKeyPress = e => {
-    if (e.charCode == 13) {
-      // Trykkede ENTER
-      console.log("Enter");
-      this.joinGame();
-    }
-  };
-
-  handleChange = e => {
-    this.setState({ gameCode: e.target.value, error: false });
-  };
-
   render() {
     return (
       <React.Fragment>
