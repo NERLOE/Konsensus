@@ -60,6 +60,7 @@ export class Join extends Component {
 					// Success
 					var player = res.data;
 					localStorage.playerID = player.id;
+					localStorage.gameID = game.id;
 				}
 			});
 
