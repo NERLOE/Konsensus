@@ -45,9 +45,8 @@ export class Join extends Component {
 		console.log("Trying to join game with name: " + name);
 
 		axios.get("/api/game/getPlayer/" + game.id + "/" + name).then(res => {
-			console.log(res);
-			if (!res.error) {
-				console.log(res.error);
+			if (!res.data.error) {
+				console.log(res.data.error);
 				this.setState({ error: true });
 				return;
 			}
