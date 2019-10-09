@@ -144,6 +144,10 @@ button:focus {
   position: relative;
 }
 
+.bgModal .modalContent .qrReader {
+  border-radius: 25px;
+}
+
 .bgModal .modalContent .modalCloseButton {
   position: absolute;
   top: -78px;

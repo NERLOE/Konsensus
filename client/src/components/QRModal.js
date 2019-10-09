@@ -35,6 +35,7 @@ export class QRModal extends Component {
 							onScan={this.handleScan}
 							style={{ height: "100%", borderRadius: "25px" }}
 							facingMode={"environment"}
+							className="qrReader"
 						/>
 					</div>
 				</div>
