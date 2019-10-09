@@ -104,14 +104,18 @@ export class Game extends Component {
 		var dilemma = this.state.dilemma;
 
 		this.state.answered = dilemma.answerOne;
-		axios.put(
-			"/api/game/addPoints/" +
-				this.state.game.id +
-				"/" +
-				this.state.player.id +
-				"/" +
-				dilemma.answerOne.points
-		);
+		axios
+			.get(
+				"/api/game/addPoints/" +
+					this.state.game.id +
+					"/" +
+					this.state.player.id +
+					"/" +
+					dilemma.answerOne.points
+			)
+			.then(res => {
+				console.log(res);
+			});
 
 		this.state.dilemma = null;
 		setTimeout(() => {
@@ -127,14 +131,18 @@ export class Game extends Component {
 		var dilemma = this.state.dilemma;
 
 		this.state.answered = dilemma.answerTwo;
-		axios.put(
-			"/api/game/addPoints/" +
-				this.state.game.id +
-				"/" +
-				this.state.player.id +
-				"/" +
-				dilemma.answerTwo.points
-		);
+		axios
+			.get(
+				"/api/game/addPoints/" +
+					this.state.game.id +
+					"/" +
+					this.state.player.id +
+					"/" +
+					dilemma.answerTwo.oints
+			)
+			.then(res => {
+				console.log(res);
+			});
 
 		this.state.dilemma = null;
 		setTimeout(() => {
