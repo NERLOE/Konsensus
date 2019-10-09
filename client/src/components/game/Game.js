@@ -65,7 +65,7 @@ export class Game extends Component {
 
 		return (
 			<React.Fragment>
-				<h1>Hej {this.state.player.name}</h1>
+				<h2 className="showBottom">{this.state.player.name}</h2>
 			</React.Fragment>
 		);
 	}

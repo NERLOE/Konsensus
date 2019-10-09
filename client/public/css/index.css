@@ -250,4 +250,12 @@ button:focus {
     display: none;
   }
 }
+
+.showBottom {
+  position: absolute;
+  bottom: 0;
+  left: 50;
+  -webkit-transform: translate(50%, 0%);
+          transform: translate(50%, 0%);
+}
 /*# sourceMappingURL=index.css.map */
