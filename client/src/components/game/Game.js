@@ -14,7 +14,7 @@ export class Game extends Component {
 	}
 
 	async getPlayerInfo() {
-		if (this.state.game.id == null) {
+		if (!this.state.game) {
 			setTimeout(() => {
 				this.getPlayerInfo();
 			}, 500);
