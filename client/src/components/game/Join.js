@@ -43,25 +43,29 @@ export class Join extends Component {
 
 		console.log("Trying to join game with name: " + name);
 
-		let res = await axios.get("/api/game/getPlayer/" + game.id + "/" + name);
+		let res = await axios.get(
+			"/api/game/getPlayer/" + this.state.game.id + "/" + name
+		);
 		if (!res.error) {
 			this.setState({ error: true });
 			return;
 		}
 
-		axios.put("/api/game/addPlayer/" + game.id + "/" + name).then(res => {
-			if (res.data.error) {
-				// Fejl
-				this.setState({ error: true });
-				console.log(res.data.error);
-			} else {
-				// Success
-				var player = res.data;
-				console.log(player);
-			}
-		});
+		axios
+			.put("/api/game/addPlayer/" + this.state.game.id + "/" + name)
+			.then(res => {
+				if (res.data.error) {
+					// Fejl
+					this.setState({ error: true });
+					console.log(res.data.error);
+				} else {
+					// Success
+					var player = res.data;
+					console.log(player);
+				}
+			});
 
-		axios.get("/api/game/get/" + code).then(res => {
+		axios.get("/api/game/get/" + this.state.game.id).then(res => {
 			if (res.data.error) {
 				// Fejl
 				this.setState({ error: true });
