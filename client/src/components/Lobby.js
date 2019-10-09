@@ -27,10 +27,10 @@ export class Lobby extends Component {
 
 	componentDidMount() {
 		this.check();
-		this.setupBeforeUnloadListener();
+		//this.setupBeforeUnloadListener();
 	}
 
-	componentWillUnmount() {
+	/* 	componentWillUnmount() {
 		window.removeEventListener("beforeunload", this.deleteGame());
 	}
 
@@ -43,24 +43,18 @@ export class Lobby extends Component {
 
 	setupBeforeUnloadListener = () => {
 		window.addEventListener("beforeunload", this.deleteGame());
-	};
+	}; */
 
 	render() {
-		if (this.state.game) {
-			return (
-				<React.Fragment>
-					<div className="codeInfo">
-						<QR value={this.state.game.id}></QR>
-					</div>
-				</React.Fragment>
-			);
-		} else {
-			return (
-				<React.Fragment>
-					<h1>Loader...</h1>
-				</React.Fragment>
-			);
-		}
+		if (!this.state.game) return null;
+
+		return (
+			<React.Fragment>
+				<div className="codeInfo">
+					<QR value={this.state.game.id}></QR>
+				</div>
+			</React.Fragment>
+		);
 	}
 }
 
