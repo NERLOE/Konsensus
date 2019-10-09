@@ -35,7 +35,7 @@ export class Join extends Component {
 	}
 
 	joinGame = () => {
-		var name = this.state.playerName.trim().toUpperCase();
+		var name = this.state.playerName.trim();
 		var game = this.state.game;
 		if (name == "") {
 			this.setState({ error: true });

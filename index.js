@@ -140,7 +140,7 @@ app.get("/api/game/getPlayer/:gameID/:player", (req, res) => {
 
 	var game = null;
 	games.forEach(g => {
-		if (id == g.id) {
+		if (gameID == g.id) {
 			game = g;
 		}
 	});
