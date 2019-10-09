@@ -21,7 +21,7 @@ export class Home extends Component {
 					// Success
 					console.log(res.data);
 					var game = res.data;
-					this.switchURL("/j/" + game.id);
+					this.switchPage("/j/" + game.id);
 				}
 			});
 		}
