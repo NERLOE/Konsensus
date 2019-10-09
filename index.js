@@ -131,9 +131,9 @@ app.put("/api/game/delete/:id", (req, res) => {
 app.get("/api/game/getPlayer/:gameID/:player", (req, res) => {
 	const gameID = req.params.gameID;
 	const playerT = req.params.player;
-	if (!gameID || !playerID) {
+	if (!gameID || !playerT) {
 		res.json({
-			error: "Enten er playerID ellers så er gameID ikke defineret."
+			error: "Spilleren eller gameID'et er ikke defineret."
 		});
 		return;
 	}
