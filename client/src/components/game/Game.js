@@ -148,7 +148,7 @@ export class Game extends Component {
 	render() {
 		if (this.state.player == null) return null;
 
-		if (this.state.dilemma) {
+		if (this.state.answered) {
 			return (
 				<React.Fragment>
 					<div className="text-center">
