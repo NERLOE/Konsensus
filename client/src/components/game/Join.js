@@ -34,7 +34,7 @@ export class Join extends Component {
 		this.check();
 	}
 
-	joinGame = () => {
+	async joinGame() {
 		var name = this.state.playerName.trim().toUpperCase();
 		if (name == "") {
 			this.setState({ error: true });
@@ -43,11 +43,11 @@ export class Join extends Component {
 
 		console.log("Trying to join game with name: " + name);
 
-        let res = await axios.get("/api/game/getPlayer/" + game.id + "/" + name);
-        if (!res.error) {
-            this.setState({ error: true });
-            return;
-        }
+		let res = await axios.get("/api/game/getPlayer/" + game.id + "/" + name);
+		if (!res.error) {
+			this.setState({ error: true });
+			return;
+		}
 
 		axios.put("/api/game/addPlayer/" + game.id + "/" + name).then(res => {
 			if (res.data.error) {
@@ -56,8 +56,8 @@ export class Join extends Component {
 				console.log(res.data.error);
 			} else {
 				// Success
-                var player = res.data;
-                console.log(player);
+				var player = res.data;
+				console.log(player);
 			}
 		});
 
@@ -73,7 +73,7 @@ export class Join extends Component {
 				this.props.history.push("/g/" + game.id);
 			}
 		});
-	};
+	}
 
 	handleKeyPress = e => {
 		if (e.charCode == 13) {
