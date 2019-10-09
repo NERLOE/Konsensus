@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import QRModal from "./QRModal";
+import axios from "axios";
 
 export class HomeScreen extends Component {
   constructor() {
@@ -11,6 +12,43 @@ export class HomeScreen extends Component {
       popupMessage: null
     };
   }
+
+  joinGame = () => {
+    var code = this.state.gameCode.trim();
+    if (code == "") {
+      this.setState({ error: true });
+      return;
+    }
+
+    console.log("Trying to join game with code: " + code);
+
+    axios.get("/api/getGame/" + code).then(res => {
+      if (res.data.error) {
+        // Fejl
+        this.setState({ error: true });
+        console.log(res.data.error);
+      } else {
+        // Success
+        console.log(res.data);
+        var game = res.data;
+        this.props.history.push("/game/" + game.id);
+      }
+    });
+  };
+
+  createGame = () => {
+    console.log("Trying to create game");
+
+    axios.put("/api/createGame").then(res => {
+      if (res.data.error) {
+        console.log(res.data.error);
+      } else {
+        console.log(res.data);
+        var game = res.data;
+        this.props.history.push("/lobby/" + game.id);
+      }
+    });
+  };
 
   handleKeyPress = e => {
     if (e.charCode == 13) {
