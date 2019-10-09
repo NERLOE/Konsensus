@@ -27,7 +27,7 @@ app.put("/api/createGame", (req, res) => {
 	res.json(game);
 });
 
-app.delete("/api/deleteGame/:id", (req, res) => {
+app.put("/api/deleteGame/:id", (req, res) => {
 	const id = req.params.id;
 	if (!id) {
 		res.json({ error: "ID er ikke defineret." });
