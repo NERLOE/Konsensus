@@ -46,8 +46,8 @@ app.put("/api/deleteGame/:id", (req, res) => {
 		return;
 	}
 
-	games = games.filter(function(value, index, arr) {
-		return value.id != id;
+	games = games.filter((v, i, arr) => {
+		return v.id != id;
 	});
 
 	res.json({ success: "Spillet blev slettet!" });

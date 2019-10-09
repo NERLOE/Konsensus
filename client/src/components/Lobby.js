@@ -30,11 +30,10 @@ export class Lobby extends Component {
 	}
 
 	componentWillUnmount() {
-		axios
-			.delete("/api/deleteGame/" + this.props.match.params.gameID)
-			.then(res => {
-				console.log(res);
-			});
+		axios.put("/api/deleteGame/" + this.props.match.params.gameID).then(res => {
+			console.log(res);
+		});
+		console.log("Deleted");
 	}
 
 	render() {
