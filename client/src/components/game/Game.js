@@ -18,7 +18,9 @@ export class Game extends Component {
 			axios
 				.get("/api/game/getRandomDilemma/" + this.state.game.id + "/" + data)
 				.then(res => {
-					console.log(res);
+					if (res.data.error) return;
+
+					console.log(res.data);
 				});
 		}
 	};
@@ -83,7 +85,15 @@ export class Game extends Component {
 
 		return (
 			<React.Fragment>
-				<h1 className="text-center">Er det din tur?</h1>
+				<div className="text-center">
+					<h1>Er det din tur?</h1>
+					<button
+						onClick={this.toggleQRModal}
+						className="btn btn-lg btn-success scanGameBtn"
+					>
+						Scan kort
+					</button>
+				</div>
 				{this.state.showQRModal ? (
 					<QRModal
 						handleScan={this.handleScan.bind(this)}
