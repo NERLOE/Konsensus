@@ -4,40 +4,40 @@ import QRReader from "./QRReader";
 import axios from "axios";
 
 export class Game extends Component {
-  constructor() {
-    super();
+	constructor() {
+		super();
 
-    this.state = {
-      game: null
-    };
-  }
+		this.state = {
+			game: null
+		};
+	}
 
-  async check() {
-    console.log(this.props);
-    console.log(this.props.match.params);
-    var res = await axios.get("/api/getGame/" + this.props.match.params.gameID);
+	async check() {
+		console.log(this.props);
+		console.log(this.props.match.params);
+		var res = await axios.get("/api/getGame/" + this.props.match.params.gameID);
 
-    if (res.data.error) {
-      this.props.history.push("/");
-      return;
-    }
+		if (res.data.error) {
+			this.props.history.push("/");
+			return;
+		}
 
-    var g = res.data;
-    this.setState({ game: g });
-  }
+		var g = res.data;
+		this.setState({ game: g });
+	}
 
-  componentDidMount() {
-    this.check();
-  }
+	componentDidMount() {
+		this.check();
+	}
 
-  render() {
-    return (
-      <React.Fragment>
-        <QRCodes />
-        <QRReader />
-      </React.Fragment>
-    );
-  }
+	render() {
+		return (
+			<React.Fragment>
+				<QRCodes />
+				<QRReader />
+			</React.Fragment>
+		);
+	}
 }
 
 export default Game;
