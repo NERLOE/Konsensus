@@ -11,8 +11,6 @@ export class Game extends Component {
 			game: null,
 			player: null
 		};
-
-		this.getPlayerInfo();
 	}
 
 	async getPlayerInfo() {
@@ -47,6 +45,7 @@ export class Game extends Component {
 
 	componentDidMount() {
 		this.check();
+		this.getPlayerInfo();
 	}
 
 	render() {
