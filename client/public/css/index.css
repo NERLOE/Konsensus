@@ -144,10 +144,10 @@ button:focus {
           transform: translate(-50%, 0%);
 }
 
-@media (max-width: 320px) {
+@media (max-width: 414px) {
   .bgModal .modalContent {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
   }
 }
 
@@ -158,14 +158,14 @@ button:focus {
   }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 320px) {
   .bgModal .modalContent {
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
   }
 }
 
-@media (max-width: 700px) {
+@media (min-width: 700px) {
   .bgModal .modalContent {
     width: 500px;
     height: 500px;
