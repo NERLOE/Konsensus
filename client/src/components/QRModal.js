@@ -33,7 +33,7 @@ export class QRModal extends Component {
 							delay={500}
 							onError={this.handleError}
 							onScan={this.handleScan}
-							style={{ height: "100%" }}
+							style={{ height: "100%", borderRadius: "25px" }}
 							facingMode={"environment"}
 						/>
 					</div>
