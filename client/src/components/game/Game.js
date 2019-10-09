@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import QRModal from "./QRModal";
+import QRModal from "../QRModal";
 import axios from "axios";
 
 export class Game extends Component {
