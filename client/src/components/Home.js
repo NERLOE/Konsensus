@@ -47,9 +47,6 @@ export class Home extends Component {
           Indtast koden til dit spil, eller opret dit eget.
         </h1>
         <HomeScreen />
-        {this.state.popupMessage ? (
-          <div className="popupMessage">{this.state.popupMessage}</div>
-        ) : null}
       </React.Fragment>
     );
   }
