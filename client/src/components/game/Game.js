@@ -9,20 +9,26 @@ export class Game extends Component {
 		this.state = {
 			game: null,
 			player: null,
-			showQRModal: false
+			showQRModal: false,
+			continentCode: "",
+			error: false
 		};
 	}
+
+	getDilemma = data => {
+		axios
+			.get("/api/game/getRandomDilemma/" + this.state.game.id + "/" + data)
+			.then(res => {
+				if (res.data.error) return;
+
+				console.log(res.data);
+			});
+	};
 
 	handleScan = data => {
 		console.log(data);
 		if (data) {
-			axios
-				.get("/api/game/getRandomDilemma/" + this.state.game.id + "/" + data)
-				.then(res => {
-					if (res.data.error) return;
-
-					console.log(res.data);
-				});
+			this.getDilemma(data);
 		}
 	};
 
@@ -80,6 +86,18 @@ export class Game extends Component {
 		this.getPlayerInfo();
 	}
 
+	handleKeyPress = e => {
+		if (e.charCode == 13) {
+			// Trykkede ENTER
+			console.log("Enter");
+			this.getDilemma(this.state.continentCode);
+		}
+	};
+
+	handleChange = e => {
+		this.setState({ continentCode: e.target.value, error: false });
+	};
+
 	render() {
 		if (this.state.player == null) return null;
 
@@ -87,6 +105,25 @@ export class Game extends Component {
 			<React.Fragment>
 				<div className="text-center">
 					<h1>Er det din tur?</h1>
+					<div className="input-group input-group-lg">
+						<input
+							type="text"
+							className={
+								"form-control gameCodeInput" +
+								(this.state.error ? " shake animated wrongCode" : "")
+							}
+							placeholder="Indtast kontinent"
+							onKeyPress={this.handleKeyPress}
+							onChange={this.handleChange.bind(this)}
+							value={this.state.gameCode}
+						/>
+					</div>
+					<button
+						onClick={this.joinGame}
+						className="btn btn-lg btn-primary joinGameBtn"
+					>
+						Få dilemma
+					</button>
 					<button
 						onClick={this.toggleQRModal}
 						className="btn btn-lg btn-success scanGameBtn"
