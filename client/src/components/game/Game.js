@@ -103,6 +103,7 @@ export class Game extends Component {
 	handleAnswerOne = () => {
 		var dilemma = this.state.dilemma;
 
+		this.state.answered = dilemma;
 		console.log("(1) Du valgte: " + dilemma.answerOne.text);
 		console.log("Konsekvens: " + dilemma.answerOne.resultText);
 		console.log("Total points: " + dilemma.answerOne.points);
@@ -111,6 +112,7 @@ export class Game extends Component {
 	handleAnswerTwo = () => {
 		var dilemma = this.state.dilemma;
 
+		this.state.answered = dilemma;
 		console.log("(2) Du valgte: " + dilemma.answerTwo.text);
 		console.log("Konsekvens: " + dilemma.answerTwo.resultText);
 		console.log("Total points: " + dilemma.answerTwo.points);
@@ -147,7 +149,7 @@ export class Game extends Component {
 						</React.Fragment>
 					) : (
 						<React.Fragment>
-							<h1>{this.state.dilemma.question}</h1>
+							<h4>{this.state.dilemma.question}</h4>
 							<button onClick={this.handleAnswerOne}>
 								{this.state.dilemma.answerOne.text}
 							</button>

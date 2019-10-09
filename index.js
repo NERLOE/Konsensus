@@ -69,6 +69,18 @@ function updateGame(game, id) {
 	});
 
 	games.push(game);
+
+	return games;
+}
+
+function updatePlayer(players, player, id) {
+	players = players.filter((v, i, arr) => {
+		return v.id != id;
+	});
+
+	players.push(player);
+
+	return players;
 }
 
 app.put("/api/game/removePlayer/:gameID/:playerID", (req, res) => {
@@ -79,6 +91,22 @@ app.put("/api/game/removePlayer/:gameID/:playerID", (req, res) => {
 	game = game.players.filter((v, i, arr) => {
 		return v.id != player.id;
 	});
+
+	updateGame(game, gameID);
+
+	res.json(player);
+});
+
+app.put("/api/game/addPoints/:gameID/:playerID/:points", (req, res) => {
+	var gameID = req.params.gameID;
+	var game = getGameFromID(gameID);
+	var player = getPlayerFromGameWithID(gameID, req.params.playerID);
+
+	player.stats.points += req.params.points;
+
+	var players = updatePlayer(game.players, player, req.params.playerID);
+
+	game.players = players;
 
 	updateGame(game, gameID);
 
