@@ -15,7 +15,6 @@ export class Home extends Component {
 	}
 
 	handleScan = data => {
-		console.log(data);
 		if (data) {
 			axios.get("/api/game/get/" + data).then(res => {
 				if (!res.data.error) {

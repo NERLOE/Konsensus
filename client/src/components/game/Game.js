@@ -14,6 +14,7 @@ export class Game extends Component {
 	}
 
 	handleScan = data => {
+		console.log(data);
 		if (data) {
 			axios
 				.get("/api/game/getRandomDilemma/" + this.state.game.id + "/" + data)
