@@ -100,7 +100,24 @@ app.put("/api/game/removePlayer/:gameID/:playerID", (req, res) => {
 app.get("/api/game/addPoints/:gameID/:playerID/:points", (req, res) => {
 	var gameID = req.params.gameID;
 	var game = getGameFromID(gameID);
+
+	if (game == null) {
+		res.json({ error: "Spillet med dette ID findes ikke!" });
+		return;
+	}
+
 	var player = getPlayerFromGameWithID(game, req.params.playerID);
+
+	if (player == null) {
+		res.json({
+			error:
+				"Spilleren med ID'et (" +
+				req.params.playerID +
+				") findes ikke i spillet: " +
+				gameID
+		});
+		return;
+	}
 
 	player.stats.points += req.params.points;
 
