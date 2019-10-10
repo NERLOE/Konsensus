@@ -122,9 +122,10 @@ app.get("/api/game/addPoints/:gameID/:playerID/:points", (req, res) => {
 	console.log(player.stats.points);
 	console.log(req.params.points);
 
-	var newPoints = parseInt(
-		parseInt(player.stats.points) + parseInt(req.params.points)
-	);
+	// var newPoints = parseInt(
+	// 	parseInt(player.stats.points) + parseInt(req.params.points)
+	// );
+	var newPoints = +player.stats.points + +req.params.points;
 	console.log(newPoints);
 	player.stats.points = newPoints;
 
