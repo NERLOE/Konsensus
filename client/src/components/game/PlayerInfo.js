@@ -6,8 +6,11 @@ export class PlayerInfo extends Component {
 		return (
 			<React.Fragment>
 				<h1>
-					{player.name} - ID: {player.id}
+					<b>{player.name}</b>
 				</h1>
+				<h2>
+					<i>{player.stats.points}</i>
+				</h2>
 			</React.Fragment>
 		);
 	}
