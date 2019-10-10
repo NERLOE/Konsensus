@@ -251,11 +251,15 @@ button:focus {
   }
 }
 
-.showBottom {
+.showBottomLeft {
   position: absolute;
   bottom: 0;
-  left: 50;
-  -webkit-transform: translate(50%, 0%);
-          transform: translate(50%, 0%);
+  left: 0;
+}
+
+.showBottomRight {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 /*# sourceMappingURL=index.css.map */

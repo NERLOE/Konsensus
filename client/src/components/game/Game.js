@@ -147,7 +147,7 @@ export class Game extends Component {
 		this.state.dilemma = null;
 		setTimeout(() => {
 			this.state.answered = null;
-		}, 1000 * 2);
+		}, 1000 * 5);
 		console.log("(2) Du valgte: " + dilemma.answerTwo.text);
 		console.log("Konsekvens: " + dilemma.answerTwo.resultText);
 		console.log("Total points: " + dilemma.answerTwo.points);
@@ -211,7 +211,10 @@ export class Game extends Component {
 							toggleMethod={this.toggleQRModal.bind(this)}
 						/>
 					) : null}
-					<h2 className="showBottom">{this.state.player.name}</h2>
+					<h2 className="showBottomLeft">{this.state.player.name}</h2>
+					<h2 className="showBottomRight">
+						Point: {this.state.player.stats.points}
+					</h2>
 				</React.Fragment>
 			);
 		}
