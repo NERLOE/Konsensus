@@ -176,7 +176,7 @@ export class Game extends Component {
 									<input
 										type="text"
 										className={
-											"form-control gameCodeInput" +
+											"form-control manualCategoryInput" +
 											(this.state.error ? " shake animated wrongCode" : "")
 										}
 										placeholder="Indtast kontinent manuelt"
@@ -195,10 +195,16 @@ export class Game extends Component {
 						) : (
 							<React.Fragment>
 								<h4>{this.state.dilemma.question}</h4>
-								<button onClick={this.handleAnswerOne}>
+								<button
+									className="btn btn-warning"
+									onClick={this.handleAnswerOne}
+								>
 									{this.state.dilemma.answerOne.text}
 								</button>
-								<button onClick={this.handleAnswerTwo}>
+								<button
+									className="btn btn-success"
+									onClick={this.handleAnswerTwo}
+								>
 									{this.state.dilemma.answerTwo.text}
 								</button>
 							</React.Fragment>

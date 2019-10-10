@@ -78,6 +78,10 @@ body {
   margin-bottom: 30px;
 }
 
+.manualCategoryInput {
+  margin: 25px;
+}
+
 input:focus,
 select:focus,
 textarea:focus,
