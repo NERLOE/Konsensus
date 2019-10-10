@@ -216,6 +216,38 @@ const dilemmas = [
             "Lærere er nu blevet importeret og eleverne kan nu modtage undervisning igen!",
           points: 300
         }
+      },
+      {
+        question:
+          "Rundt omkring i verden bliver der begået flere og flere forbrydelser og nogle er værre end andre og politiet har en løsning til dette problem og det er at genindfører dødsstraf i de lande hvor der bliver begået mest forbrydelser, men synes folk ikke er en god ide, så det er p til jer. I kan enden vælge at genindfører dødsstraffen eller ej.",
+        answerOne: {
+          text: "Genindfør dødsstraf",
+          resultText:
+            "Med dødsstraffen nu genindsat er der flere og flere der får dødsstraffen for deres forbrydelser, men det er folket ikke glad for, fordi der er kommet mange flere demonstrationer rundt omkring i verden pga. Dødsstraffen er blevet genindsat og i nogle af landene er demonstrationerne blevet til borgerkrige.",
+          points: 200
+        },
+        answerTwo: {
+          text: "Ingen dødsstraf",
+          resultText:
+            "pga. Dødsstraffen ikke er genindsat er der ikke nogen straf for nogle af de stører forbrydelser og i nogle af landene er der blevet gået mindre forbrydelser, men der er også nogle lande hvor der kommer flere og flere forbrydelser og nogle af dem bliver værre og værre og politiet kan ikke gøre andet end at smide dem i fængsel uden nogen anden form for straf.",
+          points: 300
+        }
+      },
+      {
+        question:
+          "I nogle forskellige lande skal man betale for at gå i skole og ifølge nogle folk, så hvis man ikke har gået på en meget dyr skole, så mener de at dem som har gået på en billigere skole ikke kan bruge deres uddannelse til noget, så der er nogle som er kommet med et forslag om at alle skole skal koste det samme at gå på, det er nu op til jer om at bestemme og det er en god ide at alle skoler skal koste det samme eller ej. ",
+        answerOne: {
+          text: "Koste det samme",
+          resultText:
+            "Det er nu blevet nemmere for familier med ikke så mange penge at få deres børn ind på deres drømme skoler, men det har bare gjort det at de børn som kommer fra de mere rigere familier, begynder at mobbe dem som komme fra de mere fattige familier fx siger de til dem at de aldrig skulle have gået på denne skole og det gør så at der er mange som går ud af skolen fordi de ikke kan klare at blive mobbet længere.",
+          points: 200
+        },
+        answerTwo: {
+          text: "Ikke koste det samme",
+          resultText:
+            "Der er færre og færre elever som ikke kommer ind på deres drømme skoler fordi deres forældre ikke har nok penge til at de kan komme på deres drømme skole, hvilket vil sige at de ikke kan få den uddannelse de gerne vil have og de ikke kan få det job som de gerne vil have og derfor må de nøjes med et andet job som de ikke vil have.",
+          points: 300
+        }
       }
     ]
   },
@@ -337,6 +369,51 @@ const dilemmas = [
           resultText: "Alt er som før. Ik så meget at sige.",
           points: 200
         }
+      },
+      {
+        question:
+          "Skal man fortsat kunne få spredt sin aske udover havet, hvilket forurener og fiskene der forveksler det med mad, eller skal man stoppe med at gøre det og ikke opfylde det menneskes ønske efter den tid, de har tjent landet.",
+        answerOne: {
+          text: "Stoppe",
+          resultText: "Ingen forurening, men folk bliver sure.",
+          points: 200
+        },
+        answerTwo: {
+          text: "Fortsætte",
+          resultText: "Folk er glade, men der er stadig forurening.",
+          points: 200
+        }
+      },
+      {
+        question:
+          "Skal man fortsætte med det, så man er sikker på at det virker, hvis man engang skal forsvare sig i krig, men det forurener vandet eller skal man stoppe med at gøre det.",
+        answerOne: {
+          text: "Stoppe",
+          resultText:
+            "Ingen forurening, men intet bliver testet og er mere farligt.",
+          points: 200
+        },
+        answerTwo: {
+          text: "Fortsætte",
+          resultText: "Mere forurening, og flere bomber. Ik godt!",
+          points: 200
+        }
+      },
+      {
+        question:
+          "Landmændene har et stort problem med insekter og andet kryb som spiser af afgrøderne, som så kan ende med at høsten vil slå fejl og landmændene vil ikke kunne tjene nogle penge, der er to ting som I kan gøre, men I kan kun vælge én af tingene. I kan enden vælge at lave en gas som dræber insekterne, men som også er dårligt for afgrøderne eller i kan bruge penge på en gift som bliver sprøjtet ind i planterne som vil dræber insekterne når de spiser af afgrøderne, men det er også for mennesker.",
+        answerOne: {
+          text: "Giftgas imod insekter",
+          resultText:
+            "Ved hjælp af den nye giftgas er der næsten ingen insekter som spiser af afgrøderne mere, men det er ikke kun pga. den nye giftgas, men det er også fordi afgrøderne ikke kan tåle de kemikalier som er i giftgassen og de ender med at dø.",
+          points: 200
+        },
+        answerTwo: {
+          text: "Gør noget ved planterne",
+          resultText:
+            "Den nye gift i har sprøjtet i planter virker godt imod insekterne, men der er et lille problem og det er at det gøre andre mennesker syge, hvis de spiser af de afgrøder der er blevet sprøjtet med giften, hvilket gør at landmændene ikke vil tjene nogle penge.",
+          points: 200
+        }
       }
     ]
   },
@@ -357,6 +434,51 @@ const dilemmas = [
           resultText:
             "Godt arbejde, selvfølgelig skal der fjernes pistoler og laves et system for at undgå alle de massemord.",
           points: 400
+        }
+      },
+      {
+        question:
+          "Skal vi bruge penge på billige flybilletter, men det forurener mere, dog er der penge til andre nødvendige udgifter eller købe de dyre flybilletter, som skaber mindre forurening, dog er der ikke nær så mange penge til andre nødvendige afgifter.",
+        answerOne: {
+          text: "Billige",
+          resultText:
+            "Billige biletter skaber flere flyafgange, hvilket betyder mere forurening! Det kan vi IKKE lide!",
+          points: 100
+        },
+        answerTwo: {
+          text: "Dyre",
+          resultText:
+            "Biletterne er nu dyrere, og det skaber mindre flyafgange, hvilket betyder mindre forurening! Det kan vi GODT lide! ;))",
+          points: 400
+        }
+      },
+      {
+        question:
+          "Skal vi investere i elbiler, så forureningen bliver meget mindre, dog belaster det elnettet og gør det svagere eller skal vi fortsætte med at bruge benzinbiler, hvilket forurener meget mere, til gengæld belaster det ikke elnettet.",
+        answerOne: {
+          text: "El-Biler",
+          resultText: "Mindre forurening, el-biler for life, fuck el-nettet!",
+          points: 500
+        },
+        answerTwo: {
+          text: "Benzinbiler",
+          resultText: "Lort på lort på lort på lort!",
+          points: 100
+        }
+      },
+      {
+        question:
+          "Skal det fortsat være lovligt at ryge, hvilket forurener luften en del, eller skal man gøre det ulovligt at ryge, så det ikke forurener, hvilket nok ville skabe rigtig meget drama. Man kunne også vælge at øge prisen på tobak.",
+        answerOne: {
+          text: "Lovligt og øg prisen",
+          resultText: "Folk bliver sure, men mindre ryger da de ikke har råd!",
+          points: 250
+        },
+        answerTwo: {
+          text: "Ulovligt",
+          resultText:
+            "Mindre folk ryger, men smøger bliver solgt sort nu, ligesom stoffer!",
+          points: 200
         }
       }
     ]
@@ -444,6 +566,38 @@ const dilemmas = [
           text: "Lad vejene være",
           resultText:
             "Transporten forbliver fortsat med at være langsom og varene kommer ikke i den ønskede tilstand, det gør landet fattigere da de andre lande ikke vil handle med dem.",
+          points: 100
+        }
+      },
+      {
+        question:
+          "Der er ikke nok strøm til byen, byg vindmøller eller kræftværk?",
+        answerOne: {
+          text: "Vindmøller",
+          resultText:
+            "Der nu massere af energi, men det har været dyrt! Dog er det ekstremt bæredygtigt, så godt valg!",
+          points: 400
+        },
+        answerTwo: {
+          text: "Kraftværk",
+          resultText:
+            "Der er nu massere af billig energi, men det forurener verden, hvilet vi IKKE kan lide! Dårlig idé!",
+          points: 100
+        }
+      },
+      {
+        question:
+          "Der er ikke nok rent vand til byen, vil du bygge et vandværk eller give dem klordioxid tabletter?",
+        answerOne: {
+          text: "Vandværk",
+          resultText:
+            "Vandværker er dyre, men ekstremt effektive og gode. Godt valg.",
+          points: 400
+        },
+        answerTwo: {
+          text: "Kordioxid tabletter",
+          resultText:
+            "Klordioxid er ikke særlig sundt, så det havde været bedre med et alternativ.",
           points: 100
         }
       }
