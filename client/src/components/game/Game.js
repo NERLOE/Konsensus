@@ -138,7 +138,7 @@ export class Game extends Component {
 					"/" +
 					this.state.player.id +
 					"/" +
-					dilemma.answerTwo.oints
+					dilemma.answerTwo.points
 			)
 			.then(res => {
 				console.log(res);
