@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import QRModal from "./QRModal";
-import { QR } from "./QR";
+import QRCode from "qrcode.react";
 
 export class Home extends Component {
   constructor() {
